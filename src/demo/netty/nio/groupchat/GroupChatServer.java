@@ -43,6 +43,7 @@ public class GroupChatServer {
             // 设置非阻塞
             listenChannel.configureBlocking(false);
             //listenChannel 注册到selector
+
             listenChannel.register(selector, SelectionKey.OP_ACCEPT);
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,8 +70,9 @@ public class GroupChatServer {
                         // 监听到accept
                         if (key.isAcceptable()) {
                             SocketChannel sc = listenChannel.accept();
+                            sc.configureBlocking(false);
                             // 将sc注册到selector
-                            sc.register(selector, SelectionKey.OP_ACCEPT);
+                            sc.register(selector, SelectionKey.OP_READ);
                             // 提示
                             System.out.println(sc.getRemoteAddress() + "上线了");
                         }
@@ -129,7 +131,6 @@ public class GroupChatServer {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-            e.printStackTrace();
         }
     }
 
@@ -149,7 +150,7 @@ public class GroupChatServer {
                 // 转型
                SocketChannel dest =  (SocketChannel) targetChannel;
                // 将msg 存储到buffer
-                ByteBuffer wrap = ByteBuffer.wrap(msg.getBytes(StandardCharsets.UTF_8));
+                ByteBuffer wrap = ByteBuffer.wrap(msg.getBytes());
                 // 将buffer数据写入通道
                 dest.write(wrap);
             }
@@ -162,6 +163,9 @@ public class GroupChatServer {
      * @param args
      */
     public static void main(String[] args) {
+        // 创建服务器对象
+        GroupChatServer server = new GroupChatServer();
+        server.listen();
 
 
     }
