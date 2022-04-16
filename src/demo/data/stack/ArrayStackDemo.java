@@ -46,6 +46,9 @@ public class ArrayStackDemo {
                     }
                     break;
 
+
+
+
                 case "exit":
                     scanner.close();
                     loop = false;
