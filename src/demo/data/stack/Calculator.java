@@ -172,7 +172,8 @@ public class Calculator {
             }else if(oper == '+' || oper == '-'){
                 return 0;
             }else {
-                return -1; // 假定目前的表达式只有加减乘除
+                // 假定目前的表达式只有加减乘除
+                return -1;
             }
         }
 

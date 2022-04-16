@@ -14,7 +14,8 @@ public class ArrayStackDemo {
 
         ArrayStack stack = new ArrayStack(4);
         String key = "";
-        boolean loop = true; //控制是否退出菜单
+        //控制是否退出菜单
+        boolean loop = true;
 
         Scanner scanner = new Scanner(System.in);
         while (loop){
