@@ -1,7 +1,7 @@
 package demo.imgZip;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+//import com.sun.image.codec.jpeg.JPEGCodec;
+//import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -67,8 +67,8 @@ public class ReduceImg {
             // 创建文件输出流
             FileOutputStream out = new FileOutputStream(imgdist);
             // 将图片以JPEG压缩，保存到out中
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(bufferedImage);
+//            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+//            encoder.encode(bufferedImage);
             // 关闭文件输出流
             out.close();
         } catch (IOException e) {
@@ -116,8 +116,8 @@ public class ReduceImg {
                     // 创建文件输出流
                     FileOutputStream out = new FileOutputStream(imgdist);
                     // 将图片以JPEG压缩，保存到out中
-                    JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-                    encoder.encode(bufferedImage);
+                    //JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+                   // encoder.encode(bufferedImage);
                     // 关闭文件输出流
                     out.close();
                 } catch (Exception e) {
